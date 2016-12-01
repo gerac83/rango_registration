@@ -1,0 +1,28 @@
+{% extends 'regapp/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    Add your GitHub URL for Rango!
+{% endblock %}
+
+{% block body_block %}
+      {% if gitadded  %}
+        <h2 class="display-6">Thanks!<br /></h2>
+        <br />
+        <p>Your URL has been saved successfully! You should receive shortly a confirmation e-mail!</p>
+        <br />
+        <div>
+          <p><a class="btn btn-lg btn-success" href="{% url 'logout' %}?next=/regapp/" role="button">Logout</a></p>
+        </div>
+      {% else %}
+        <form id="github_form" method="post" action="/regapp/github/">
+            {% csrf_token %}
+            {% for field in form.visible_fields %}
+                <h4 class="display-6">{{ field.help_text }}<br /></h4>
+                <br />
+                {{ field }}
+            {% endfor %}
+            <input type="submit" name="submit" value="Add Page" />
+        </form>
+      {% endif %}
+{% endblock %}

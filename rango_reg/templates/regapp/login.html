@@ -1,0 +1,22 @@
+{% extends 'regapp/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+  User Login
+{% endblock %}
+
+{% block body_block %}
+  <h2 class="display-6">Login to Rango<br /></h2>
+  <br />
+  <br />
+  <form id="login_form" method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    Username: <input type="text" name="username" value="" size="8" />
+    <br />
+    <br />
+    Password: <input type="password" name="password" value="" size="15" /> <br />
+    <br />
+    <br />
+    <input type="submit" value="submit" />
+  </form>
+{% endblock %}
