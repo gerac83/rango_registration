@@ -9,7 +9,7 @@ from regapp.models import User, GitHub
 from random import randint
 
 def populate():
-    for i in range(0,5):
+    for i in range(0,10):
         current_user = str(random_with_N_digits(7))+"a"
         user = User.objects.get_or_create(username=current_user, password="password",
                                           first_name=current_user, last_name=current_user, email=current_user+"@testuser.com")[0]
