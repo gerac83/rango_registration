@@ -12,4 +12,4 @@ class UserProfile(models.Model):
 
 class GitHub(models.Model):
     userid = models.CharField(max_length=8)
-    url = models.URLField()
+    url = models.URLField(default='None')
