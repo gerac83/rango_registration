@@ -81,7 +81,11 @@ def github(request):
             print form.errors
 
     ghobj = GitHub.objects.filter(userid=current_user)
-    context_dict = {'form':form, 'gitadded': githubQ, 'github_url': ghobj[0].url}
+    if len(ghobj) == 0:
+        giturl = 'None'
+    else:
+        giturl = ghobj[0].url
+    context_dict = {'form':form, 'gitadded': githubQ, 'github_url': giturl}
     return render(request, 'regapp/github.html', context_dict)
 
 @login_required

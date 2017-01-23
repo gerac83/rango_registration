@@ -11,7 +11,7 @@
         <br />
         <p>Your URL has been saved successfully! Your registered GitHub URL is:</p>
         <br />
-        <p>{{ github_url }}</p>
+        <p><a href="{{ github_url }}">{{ github_url }}</a></p>
         <div>
           <p><a class="btn btn-lg btn-success" href="{% url 'logout' %}?next=/regapp/" role="button">Logout</a></p>
         </div>
