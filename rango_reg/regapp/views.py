@@ -80,7 +80,8 @@ def github(request):
         else:
             print form.errors
 
-    context_dict = {'form':form, 'gitadded': githubQ}
+    ghobj = GitHub.objects.filter(userid=current_user)
+    context_dict = {'form':form, 'gitadded': githubQ, 'github_url': ghobj[0].url}
     return render(request, 'regapp/github.html', context_dict)
 
 @login_required

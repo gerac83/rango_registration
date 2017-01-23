@@ -9,12 +9,15 @@
       {% if gitadded  %}
         <h2 class="display-6">Thanks!<br /></h2>
         <br />
-        <p>Your URL has been saved successfully! You should receive shortly a confirmation e-mail!</p>
+        <p>Your URL has been saved successfully! Your registered GitHub URL is:</p>
         <br />
+        <p>{{ github_url }}</p>
         <div>
           <p><a class="btn btn-lg btn-success" href="{% url 'logout' %}?next=/regapp/" role="button">Logout</a></p>
         </div>
       {% else %}
+        <p>Your current registered URL is:</p>
+        <p><a href="{{ github_url }}">{{ github_url }}</a></p>
         <form id="github_form" method="post" action="/regapp/github/">
             {% csrf_token %}
             {% for field in form.visible_fields %}
@@ -22,7 +25,7 @@
                 <br />
                 {{ field }}
             {% endfor %}
-            <input type="submit" name="submit" value="Add Page" />
+            <input type="submit" name="submit" value="Add/Modify URL" />
         </form>
       {% endif %}
 {% endblock %}

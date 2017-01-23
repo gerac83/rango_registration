@@ -16,7 +16,7 @@ class UserForm(forms.ModelForm):
 #        fields = ('website',)
 
 class GithubForm(forms.ModelForm):
-    url = forms.URLField(max_length=200, help_text="Please enter the URL of of your GitHub rango repository.")
+    url = forms.URLField(max_length=200, help_text="Please enter the URL of your GitHub rango repository.")
 
     class Meta:
         model = GitHub
