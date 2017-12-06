@@ -15,7 +15,7 @@ def populate():
                                           first_name=current_user, last_name=current_user, email=current_user+"@testuser.com")[0]
         user.set_password(user.password)
         user.save()
-        page_url = "https://ger_ac@bitbucket.org/ger_ac/tango_with_django_project_1.10.git"
+        page_url = "https://github.com/gerac83/rango_1.11.git"
         g = GitHub.objects.get_or_create(userid=current_user, url=page_url)[0]
         g.save()
 
